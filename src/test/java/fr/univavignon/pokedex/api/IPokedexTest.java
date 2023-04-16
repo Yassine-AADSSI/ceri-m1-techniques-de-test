@@ -25,7 +25,6 @@ public class IPokedexTest {
     List<Pokemon> pokemonsList;
     Comparator<Pokemon> orderByDefense = Comparator.comparing(Pokemon::getDefense);
 
-
     @Before
     public void init() throws PokedexException {
         iPokedex = mock(IPokedex.class);
