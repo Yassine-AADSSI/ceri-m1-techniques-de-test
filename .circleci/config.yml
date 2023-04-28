@@ -30,7 +30,7 @@ jobs:
           command: mvn test
       - run:
           name: DeployDoc
-          command: cp -r ../target/site/apidocs/* ../docs/
+          command: cp -r C:\\Users\\AADSSI\\OneDrive\\Bureau\\TechniquedeTests\\ceri-m1-techniques-de-test\\target\\site\\apidocs ../docs/
 
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
