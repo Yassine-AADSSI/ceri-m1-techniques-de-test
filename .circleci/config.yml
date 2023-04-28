@@ -30,7 +30,10 @@ jobs:
           command: mvn test
       - run:
           name: DeployDoc
-          command: cp -r target/site/apidocs/* docs/
+          command: |
+            cp -r target/site/apidocs/* docs/
+            git commit -m "Deploy to GitHub Pages"
+            git push
 
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
