@@ -31,6 +31,8 @@ jobs:
       - run:
           name: DeployDoc
           command: |
+            git config --global user.email "yassine.aadssi@alumni.univ-avignon.fr"
+            git config --global user.name "Yassine-AADSSI"
             cp -r target/site/apidocs/* docs/
             git commit -m "Deploy to GitHub Pages"
             git push
