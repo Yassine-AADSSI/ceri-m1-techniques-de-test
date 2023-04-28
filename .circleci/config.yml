@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Test
           command: mvn test
-      -run:
+      - run:
           name: DeployDoc
           command: cp -r ../target/site/apidocs/* ../docs/
 
