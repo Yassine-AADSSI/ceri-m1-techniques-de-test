@@ -50,7 +50,7 @@ jobs:
             - "57:60:7d:b1:1f:32:c6:a3:cf:12:46:fd:d0:95:b1:01"
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --dist target/site/apidocs/
+          command: gh-pages --dist target/site/apidocs/ --dest docs
 
 
 
