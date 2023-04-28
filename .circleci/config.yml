@@ -28,6 +28,9 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      -run:
+          name: DeployDoc
+          command: cp -r ../target/site/apidocs/* ../docs/
 
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
