@@ -51,6 +51,7 @@ jobs:
       - run:
           name: Deploy docs to gh-pages branch
           command: |
+            rm -rf docs/*
             cp -r target/site/apidocs/* docs/
             gh-pages --dist docs
 
