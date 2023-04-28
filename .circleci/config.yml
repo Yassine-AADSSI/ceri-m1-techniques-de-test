@@ -63,9 +63,9 @@ workflows:
     jobs:
       - build-and-test
       - docs-deploy:
-        requires:
-          - build-and-test
         jobs:
+          requires:
+            - build-and-test
           filters:
             branches:
               only: master
