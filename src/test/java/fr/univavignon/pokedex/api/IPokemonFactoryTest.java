@@ -19,7 +19,7 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void createPokemon() {
+    public void createPokemon() throws PokedexException {
         when(iPokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(pokemon_1);
         when(iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4)).thenReturn(pokemon_2);
 
