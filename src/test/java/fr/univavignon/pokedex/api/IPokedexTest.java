@@ -37,6 +37,7 @@ public class IPokedexTest {
         pokemons.add(pokemon2);
         pokemonsList = Arrays.asList(pokemon2, pokemon1);
 
+
         when(iPokedex.getPokemons(orderByDefense)).thenAnswer(invocation -> {
             Comparator<Pokemon> comparator = invocation.getArgument(0);
             List<Pokemon> sortedPokemons = new ArrayList<>(pokemonsList);

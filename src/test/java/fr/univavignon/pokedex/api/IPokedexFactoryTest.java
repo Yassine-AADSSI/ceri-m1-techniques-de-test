@@ -17,10 +17,17 @@ public class IPokedexFactoryTest {
     @Before
     public void init() {
 
-        iPokedexFactory = mock(IPokedexFactory.class) ;
-        iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        iPokemonFactory = mock(IPokemonFactory.class);
-        pokedex = mock(IPokedex.class);
+        //iPokedexFactory = mock(IPokedexFactory.class) ;
+        IPokedexFactory iPokedexFactory = new PokedexFactory();
+
+        //iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        IPokemonMetadataProvider iPokemonMetadataProvider = new PokemonMetadataProvider();
+
+        IPokemonFactory iPokemonFactory = new PokemonFactory();
+        //iPokemonFactory = mock(IPokemonFactory.class);
+
+        //pokedex = mock(IPokedex.class);
+        IPokedex pokedex = new Pokedex(iPokemonFactory, iPokemonMetadataProvider);
         when(iPokedexFactory.createPokedex(iPokemonMetadataProvider, iPokemonFactory)).thenReturn(pokedex);
 
     }
