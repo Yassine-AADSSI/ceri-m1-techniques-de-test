@@ -35,25 +35,6 @@ public class IPokedexTest {
         pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
 
-        pokemons.add(pokemon1);
-        pokemons.add(pokemon2);
-        pokemonsList = Arrays.asList(pokemon2, pokemon1);
-
-
-        when(iPokedex.getPokemons(orderByDefense)).thenAnswer(invocation -> {
-            Comparator<Pokemon> comparator = invocation.getArgument(0);
-            List<Pokemon> sortedPokemons = new ArrayList<>(pokemonsList);
-            sortedPokemons.sort(comparator);
-            return sortedPokemons;
-        });
-
-
-        when(iPokedex.addPokemon(pokemon1)).thenReturn(0);
-        when(iPokedex.addPokemon(pokemon2)).thenReturn(1);
-        when(iPokedex.getPokemon(0)).thenReturn(pokemon1);
-        when(iPokedex.getPokemon(1)).thenReturn(pokemon2);
-        when(iPokedex.size()).thenReturn(2);
-        when(iPokedex.getPokemons()).thenReturn(pokemons);
     }
 
     @Test
