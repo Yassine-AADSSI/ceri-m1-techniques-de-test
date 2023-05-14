@@ -34,30 +34,36 @@ public class IPokedexTest {
 
         pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
-
     }
 
     @Test
     public void addPokemon() {
+        iPokedex.addPokemon(pokemon1);
+        iPokedex.addPokemon(pokemon2);
         assertEquals(iPokedex.addPokemon(pokemon1), 0);
-        assertEquals(iPokedex.addPokemon(pokemon2), 1);
+        assertEquals(iPokedex.addPokemon(pokemon2), 133);
     }
 
     @Test
     public void getPokemon() throws PokedexException {
+        iPokedex.addPokemon(pokemon1);
+        iPokedex.addPokemon(pokemon2);
         assertEquals(iPokedex.getPokemon(0), pokemon1);
-        assertEquals(iPokedex.getPokemon(1), pokemon2);
+        assertEquals(iPokedex.getPokemon(133), pokemon2);
     }
 
     @Test
     public void shouldReturnSize()
     {
+        iPokedex.addPokemon(pokemon1);
+        iPokedex.addPokemon(pokemon2);
         assertEquals(iPokedex.size(), 2);
     }
 
     @Test
     public void getPockemons(){
-        assertEquals(iPokedex.getPokemons(), pokemons);
+        iPokedex.addPokemon(pokemon1);
+        iPokedex.addPokemon(pokemon2);
         assertTrue(iPokedex.getPokemons().contains(pokemon1));
         assertTrue(iPokedex.getPokemons().contains(pokemon2));
     }
@@ -65,12 +71,17 @@ public class IPokedexTest {
 
     @Test
     public void testOrderPokemons(){
-        // Appel de la méthode getPokemons avec un tri par défense
-        List<Pokemon> sortedByDefense = iPokedex.getPokemons();
+
+
+        iPokedex.addPokemon(pokemon2);
+        iPokedex.addPokemon(pokemon1);
+        Comparator<Pokemon> orderByDefense = Comparator.comparing(Pokemon::getDefense);
+        List<Pokemon> list = iPokedex.getPokemons(orderByDefense);
+
 
         // Vérification que la liste retournée est triée par ordre croissant de défense
         List<Pokemon> expected = Arrays.asList(pokemon1, pokemon2);
-        assertEquals(expected, sortedByDefense);
+        assertEquals(expected, list);
     }
 
 
