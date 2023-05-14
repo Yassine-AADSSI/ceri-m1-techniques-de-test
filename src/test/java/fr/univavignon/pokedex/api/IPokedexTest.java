@@ -68,7 +68,6 @@ public class IPokedexTest {
         assertTrue(iPokedex.getPokemons().contains(pokemon2));
     }
 
-
     @Test
     public void testOrderPokemons(){
 
