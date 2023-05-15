@@ -9,8 +9,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -50,6 +49,10 @@ public class IPokedexTest {
         iPokedex.addPokemon(pokemon2);
         assertEquals(iPokedex.getPokemon(0), pokemon1);
         assertEquals(iPokedex.getPokemon(133), pokemon2);
+
+        assertThrows(PokedexException.class, () -> {
+            iPokedex.getPokemon(-1);
+        });
     }
 
     @Test
@@ -82,7 +85,27 @@ public class IPokedexTest {
         // Vérification que la liste retournée est triée par ordre croissant de défense
         List<Pokemon> expected = Arrays.asList(pokemon1, pokemon2);
         assertEquals(expected, list);
+
+        List<Pokemon> pokemons = iPokedex.getPokemons();
+        assertEquals(pokemons, iPokedex.getPokemons(PokemonComparators.NAME));
     }
+    @Test
+    public void testGetPokemonMetadata() throws PokedexException{
+        iPokedex.addPokemon(pokemon1);
+        PokemonMetadata pokemonMetadata = iPokedex.getPokemonMetadata(0);
+        assertEquals(pokemonMetadata.getIndex(),pokemon1.getIndex());
+        assertEquals(pokemonMetadata.getName(),pokemon1.getName());
+    }
+
+
+    @Test
+    public void testCreatePokemon() throws PokedexException{
+        assertEquals(613,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCp());
+        assertEquals(0,iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
+
+
+    }
+
 
 
 
