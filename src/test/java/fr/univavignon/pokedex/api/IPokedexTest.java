@@ -49,7 +49,6 @@ public class IPokedexTest {
         iPokedex.addPokemon(pokemon2);
         assertEquals(iPokedex.getPokemon(0), pokemon1);
         assertEquals(iPokedex.getPokemon(133), pokemon2);
-
         assertThrows(PokedexException.class, () -> {
             iPokedex.getPokemon(-1);
         });
