@@ -67,7 +67,6 @@ workflows:
     jobs:
       - build-and-test
       - docs-deploy:
-        jobs:
           requires:
             - build-and-test
           filters:
