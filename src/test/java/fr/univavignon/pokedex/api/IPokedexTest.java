@@ -95,6 +95,7 @@ public class IPokedexTest {
         PokemonMetadata pokemonMetadata = iPokedex.getPokemonMetadata(0);
         assertEquals(pokemonMetadata.getIndex(),pokemon1.getIndex());
         assertEquals(pokemonMetadata.getName(),pokemon1.getName());
+        assertEquals(pokemonMetadata.getDefense(),pokemon1.getDefense());
     }
 
 

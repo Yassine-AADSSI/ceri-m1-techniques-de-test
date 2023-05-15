@@ -18,6 +18,10 @@ public class IPokemonFactoryTest {
     public void createPokemon() throws PokedexException {
 
         assertEquals(613,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCp());
+        assertEquals(64,iPokemonFactory.createPokemon(0, 613,64,4000,4).getHp());
+        assertEquals(4000,iPokemonFactory.createPokemon(0, 613,64,4000,4).getDust());
+        assertEquals(4,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCandy());
+
         assertEquals(0, iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
     }
 }
