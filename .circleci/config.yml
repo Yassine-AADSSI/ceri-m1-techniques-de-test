@@ -28,7 +28,9 @@ jobs:
       - run:
           name: Test
           command: mvn test
-
+      - run:
+          name: Build the docs with javadoc
+          command: javadoc -d docs src/main/java/fr/univavignon/pokedex/api/*
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
 
@@ -38,7 +40,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: target/site/apidocs/
+          at: docs/
       - run:
           name: Install and configure dependencies
           command: |
@@ -50,11 +52,8 @@ jobs:
             - "dc:ff:8e:de:95:78:8f:00:9d:23:f4:0b:6a:61:4e:ca"
       - run:
           name: Deploy docs to gh-pages branch
-          command: |
-            rm -rf docs
-            mkdir docs
-            cp -r target/site/apidocs/* docs/
-            gh-pages --dist docs
+          command:
+            gh-pages --dist docs/
 
 
 
