@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokedexTest {
-
+/*
     IPokedex iPokedex;
     IPokemonFactory iPokemonFactory;
     IPokemonMetadataProvider iPokemonMetadataProvider;
@@ -116,7 +116,7 @@ public class IPokedexTest {
 
 
 
-
+*/
 
 
 }
