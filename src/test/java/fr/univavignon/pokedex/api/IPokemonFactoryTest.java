@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 
 public class IPokemonFactoryTest {
     private IPokemonFactory iPokemonFactory;
-/*
     @Before
     public void init() {
         iPokemonFactory = new PokemonFactory();
@@ -24,5 +23,5 @@ public class IPokemonFactoryTest {
 
         assertEquals(0, iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
     }
-    */
+
 }

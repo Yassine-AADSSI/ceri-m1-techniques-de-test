@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class IPokemonMetadataProviderTest {
-    /*
+
     private IPokemonMetadataProvider metaData;
     private PokemonMetadata pokemon1;
     private PokemonMetadata pokemon2;
@@ -28,5 +28,5 @@ public class IPokemonMetadataProviderTest {
         assertEquals(metaData.getPokemonMetadata(133).getDefense(), pokemon2.getDefense());
 
 
-    }*/
+    }
 }
