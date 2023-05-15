@@ -28,11 +28,31 @@ jobs:
       - run:
           name: Test
           command: mvn test
-      - run:
-          name: Build the docs with javadoc
-          command: javadoc -d docs ./src/main/java/fr/univavignon/pokedex/api/*
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
+
+
+
+  docs:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run:
+          name: OpenJDK-PPA
+          command: sudo add-apt-repository ppa:openjdk-r/ppa
+      - run:
+          name: Update APT
+          command: sudo apt-get update
+      - run:
+          name: OpenJDK-Install
+          command: sudo apt-get install openjdk-11-jdk-headless -y
+      - run:
+          name: Build the docs with javadoc
+          command: javadoc -d docs src/main/java/fr/univavignon/pokedex/api/*
+      - persist_to_workspace:
+          root: .
+          paths: docs
 
   docs-deploy:
     docker:
@@ -60,13 +80,18 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  main:
     jobs:
-      - build-and-test
-      - docs-deploy:
+      - build-and-test:
+          filters:
+            branches:
+              only: master
+      - docs:
           requires:
             - build-and-test
+      - docs-deploy:
+          requires:
+            - docs
           filters:
             branches:
               only: master
