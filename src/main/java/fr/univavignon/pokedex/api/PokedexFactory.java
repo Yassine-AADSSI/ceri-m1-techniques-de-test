@@ -2,7 +2,9 @@ package fr.univavignon.pokedex.api;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Cette classe représente un PokedexFactory.
+ */
 public class PokedexFactory implements IPokedexFactory{
 
     /**

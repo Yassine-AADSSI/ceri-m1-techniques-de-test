@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
-
+/**
+ * Cette classe représente une factory pour creer un pockemon.
+ */
 public class PokemonFactory implements IPokemonFactory{
 
     @Override

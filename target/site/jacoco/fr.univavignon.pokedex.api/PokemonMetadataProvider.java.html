@@ -2,7 +2,9 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Cette classe représente un PokemonMetadata.
+ */
 public class PokemonMetadataProvider implements IPokemonMetadataProvider{
 
 
@@ -10,14 +12,14 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
      * List of pokemons.
      */
     private List&lt;PokemonMetadata&gt; pokemonMetadataList;
-    /*
-     * Constructor.
+    /**
+     * Contructor.
      */
-<span class="fc" id="L16">    public PokemonMetadataProvider() {</span>
-<span class="fc" id="L17">        this.pokemonMetadataList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L18">        pokemonMetadataList.add(new PokemonMetadata(0, &quot;Bulbizarre&quot;, 126, 126, 90));</span>
-<span class="fc" id="L19">        pokemonMetadataList.add(new PokemonMetadata(133, &quot;Aquali&quot;, 186, 168, 260));</span>
-<span class="fc" id="L20">    }</span>
+<span class="nc" id="L18">    public PokemonMetadataProvider() {</span>
+<span class="nc" id="L19">        this.pokemonMetadataList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L20">        pokemonMetadataList.add(new PokemonMetadata(0, &quot;Bulbizarre&quot;, 126, 126, 90));</span>
+<span class="nc" id="L21">        pokemonMetadataList.add(new PokemonMetadata(133, &quot;Aquali&quot;, 186, 168, 260));</span>
+<span class="nc" id="L22">    }</span>
 
 
     /**
@@ -30,12 +32,12 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
      */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (PokemonMetadata pokemonMetadata : pokemonMetadataList) {</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (pokemonMetadata.getIndex() == index) {</span>
-<span class="nc" id="L35">                return pokemonMetadata;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (PokemonMetadata pokemonMetadata : pokemonMetadataList) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (pokemonMetadata.getIndex() == index) {</span>
+<span class="nc" id="L37">                return pokemonMetadata;</span>
             }
-<span class="nc" id="L37">        }</span>
-<span class="nc" id="L38">        throw new PokedexException(&quot;L'index du pokémon n'existe pas&quot;);</span>
+<span class="nc" id="L39">        }</span>
+<span class="nc" id="L40">        throw new PokedexException(&quot;L'index du pokémon n'existe pas&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

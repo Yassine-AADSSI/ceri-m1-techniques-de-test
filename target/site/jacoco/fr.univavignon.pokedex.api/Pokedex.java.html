@@ -5,12 +5,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Cette classe représente un Pokedex.
+ * Un Pokedex est utilisé pour enregistrer et gérer les informations sur les Pokémon.
+ */
 public class Pokedex implements IPokedex{
 
     /*
      * List of pokemons.
      */
-<span class="fc" id="L13">    private List&lt;Pokemon&gt; pokemons = new ArrayList&lt;&gt;();;</span>
+<span class="nc" id="L17">    private List&lt;Pokemon&gt; pokemons = new ArrayList&lt;&gt;();;</span>
     /*
      * Factory used to create pokemons.
      */
@@ -19,62 +23,67 @@ public class Pokedex implements IPokedex{
      * Provider used to get pokemon metadata.
      */
     private IPokemonMetadataProvider pokemonMetadataProvider;
-
-<span class="fc" id="L23">    public Pokedex(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {</span>
-<span class="fc" id="L24">        this.pokemons = new ArrayList&lt;&gt;();;</span>
-<span class="fc" id="L25">        this.pokemonFactory = pokemonFactory;</span>
-<span class="fc" id="L26">        this.pokemonMetadataProvider = pokemonMetadataProvider;</span>
-<span class="fc" id="L27">    }</span>
+    /**
+     * Constructor.
+     * @param pokemonFactory L'instance de l'interface IPokemonFactory utilisée pour créer des instances de Pokémon.
+     * @param pokemonMetadataProvider L'instance de l'interface IPokemonMetadataProvider utilisée pour fournir des métadonnées sur les Pokémon.
+     *
+     */
+<span class="nc" id="L32">    public Pokedex(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {</span>
+<span class="nc" id="L33">        this.pokemons = new ArrayList&lt;&gt;();;</span>
+<span class="nc" id="L34">        this.pokemonFactory = pokemonFactory;</span>
+<span class="nc" id="L35">        this.pokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="nc" id="L36">    }</span>
 
 
     @Override
     public int size() {
-<span class="fc" id="L32">        return pokemons.size();</span>
+<span class="nc" id="L41">        return pokemons.size();</span>
     }
 
     @Override
     public int addPokemon(Pokemon pokemon) {
-<span class="fc" id="L37">        pokemons.add(pokemon);</span>
-<span class="fc" id="L38">        return pokemon.getIndex();</span>
+<span class="nc" id="L46">        pokemons.add(pokemon);</span>
+<span class="nc" id="L47">        return pokemon.getIndex();</span>
     }
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        for (Pokemon pokemon : pokemons) {</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (pokemon.getIndex() == id) {</span>
-<span class="fc" id="L45">                return pokemon;</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        for (Pokemon pokemon : pokemons) {</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (pokemon.getIndex() == id) {</span>
+<span class="nc" id="L54">                return pokemon;</span>
             }
-<span class="fc" id="L47">        }</span>
-<span class="nc" id="L48">        throw new PokedexException(&quot;Invalid index: &quot; + id);</span>
+<span class="nc" id="L56">        }</span>
+<span class="nc" id="L57">        throw new PokedexException(&quot;Invalid index: &quot; + id);</span>
 
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="fc" id="L54">        return pokemons;</span>
+<span class="nc" id="L63">        return pokemons;</span>
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="fc" id="L59">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
-<span class="fc" id="L60">        sortedPokemons.sort(order);</span>
-<span class="fc" id="L61">        return Collections.unmodifiableList(sortedPokemons);</span>
+<span class="nc" id="L68">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
+<span class="nc" id="L69">        sortedPokemons.sort(order);</span>
+<span class="nc" id="L70">        return Collections.unmodifiableList(sortedPokemons);</span>
     }
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
-<span class="nc" id="L66">        return pokemonFactory.createPokemon(index, cp, hp,dust, candy);</span>
+<span class="nc" id="L75">        return pokemonFactory.createPokemon(index, cp, hp,dust, candy);</span>
     }
 
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="nc bnc" id="L72" title="All 2 branches missed.">        for (PokemonMetadata pokemonMetadata : pokemons) {</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">            if (pokemonMetadata.getIndex() == index) {</span>
-<span class="nc" id="L74">                return pokemonMetadata;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        for (PokemonMetadata pokemonMetadata : pokemons) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (pokemonMetadata.getIndex() == index) {</span>
+<span class="nc" id="L83">                return pokemonMetadata;</span>
             }
-<span class="nc" id="L76">        }</span>
-<span class="nc" id="L77">        throw new PokedexException(&quot;L'index du pokémon n'existe pas&quot;);</span>
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">        throw new PokedexException(&quot;L'index du pokémon n'existe pas&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

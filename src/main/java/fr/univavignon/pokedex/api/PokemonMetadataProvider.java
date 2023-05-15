@@ -2,7 +2,9 @@ package fr.univavignon.pokedex.api;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Cette classe représente un PokemonMetadata.
+ */
 public class PokemonMetadataProvider implements IPokemonMetadataProvider{
 
 
@@ -10,8 +12,8 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
      * List of pokemons.
      */
     private List<PokemonMetadata> pokemonMetadataList;
-    /*
-     * Constructor.
+    /**
+     * Contructor.
      */
     public PokemonMetadataProvider() {
         this.pokemonMetadataList = new ArrayList<>();

@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
-
+/**
+ * Cette classe représente Trainer.
+ */
 public class PokemonTrainerFactory implements IPokemonTrainerFactory{
 
 

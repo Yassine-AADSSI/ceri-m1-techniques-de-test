@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Cette classe représente un Pokedex.
+ * Un Pokedex est utilisé pour enregistrer et gérer les informations sur les Pokémon.
+ */
 public class Pokedex implements IPokedex{
 
     /*
@@ -19,7 +23,12 @@ public class Pokedex implements IPokedex{
      * Provider used to get pokemon metadata.
      */
     private IPokemonMetadataProvider pokemonMetadataProvider;
-
+    /**
+     * Constructor.
+     * @param pokemonFactory L'instance de l'interface IPokemonFactory utilisée pour créer des instances de Pokémon.
+     * @param pokemonMetadataProvider L'instance de l'interface IPokemonMetadataProvider utilisée pour fournir des métadonnées sur les Pokémon.
+     *
+     */
     public Pokedex(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemons = new ArrayList<>();;
         this.pokemonFactory = pokemonFactory;

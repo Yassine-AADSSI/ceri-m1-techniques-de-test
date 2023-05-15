@@ -2,8 +2,10 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
-<span class="fc" id="L6">public class PokedexFactory implements IPokedexFactory{</span>
+/**
+ * Cette classe représente un PokedexFactory.
+ */
+<span class="nc" id="L8">public class PokedexFactory implements IPokedexFactory{</span>
 
     /**
      * Creates a new pokedex instance using the given
@@ -15,7 +17,7 @@ import java.util.List;
      */
     @Override
     public IPokedex createPokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
-<span class="fc" id="L18">        return new Pokedex(pokemonFactory, metadataProvider);</span>
+<span class="nc" id="L20">        return new Pokedex(pokemonFactory, metadataProvider);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
