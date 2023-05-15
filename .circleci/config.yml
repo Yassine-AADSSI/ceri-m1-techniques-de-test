@@ -47,7 +47,7 @@ jobs:
             git config --global user.name "Yassine-AADSSI"
       - add_ssh_keys:
           fingerprints:
-            - "57:60:7d:b1:1f:32:c6:a3:cf:12:46:fd:d0:95:b1:01"
+            - "dc:ff:8e:de:95:78:8f:00:9d:23:f4:0b:6a:61:4e:ca"
       - run:
           name: Deploy docs to gh-pages branch
           command: |

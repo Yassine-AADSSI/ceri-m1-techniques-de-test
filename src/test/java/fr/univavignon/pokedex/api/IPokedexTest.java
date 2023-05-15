@@ -96,6 +96,10 @@ public class IPokedexTest {
         assertEquals(pokemonMetadata.getIndex(),pokemon1.getIndex());
         assertEquals(pokemonMetadata.getName(),pokemon1.getName());
         assertEquals(pokemonMetadata.getDefense(),pokemon1.getDefense());
+
+        assertThrows(PokedexException.class, () -> {
+            iPokedex.getPokemon(-1);
+        });
     }
 
 
@@ -104,6 +108,9 @@ public class IPokedexTest {
         assertEquals(613,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCp());
         assertEquals(0,iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
 
+        assertThrows(PokedexException.class, () -> {
+            iPokedex.getPokemon(-1);
+        });
 
     }
 
