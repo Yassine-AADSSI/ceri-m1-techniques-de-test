@@ -54,6 +54,7 @@ public class IPokedexTest {
         });
     }
 
+
     @Test
     public void shouldReturnSize()
     {
