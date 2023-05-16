@@ -25,7 +25,9 @@ public class IRocketPokemonFactoryTest {
         assertEquals(pokemon1.getDust(), rocket.getDust());
         assertEquals(pokemon1.getCandy(), rocket.getCandy());
 
+        // Verifier avec un index inferieur à 0
         Pokemon rocket2 = rocketPokemonFactory.createPokemon(-1, 0, 0, 0, 0);
+
         assertEquals(rocket2.getIndex(), -1);
         assertEquals(rocket2.getName(), "Ash's Pikachu");
         assertEquals(rocket2.getAttack(), 1000);
@@ -37,11 +39,11 @@ public class IRocketPokemonFactoryTest {
         assertEquals(rocket2.getCandy(), 0);
         assertEquals(rocket2.getIv(), 0, 0);
         
-        
-        
+
         Pokemon missingno = rocketPokemonFactory.createPokemon(1000, 0, 0, 0, 0);
         assertEquals(missingno.getName(), "MISSINGNO");
         
     }
+
 
 }
