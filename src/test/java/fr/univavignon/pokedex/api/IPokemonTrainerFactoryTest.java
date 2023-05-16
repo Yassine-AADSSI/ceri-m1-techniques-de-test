@@ -8,27 +8,28 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokemonTrainerFactoryTest {
-    private IPokemonTrainerFactory pokemonTrainerFactory;
-    private IPokedexFactory pokedexFactory;
-    private IPokedex iPokedex;
-    private PokemonTrainer pokemonTrainer;
+    IPokemonTrainerFactory pokemonTrainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory;
+    IPokedex pokedex;
+    PokemonTrainer pokemonTrainer;
 
     @Before
-    public void setUp() throws PokedexException {
-        pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
-        pokedexFactory = mock(IPokedexFactory.class);
-        iPokedex = mock(IPokedex.class);
-        pokemonTrainer = new PokemonTrainer("Yassine", Team.MYSTIC, iPokedex);
-
-        when(pokemonTrainerFactory.createTrainer("Yassine", Team.MYSTIC, pokedexFactory)).thenReturn(pokemonTrainer);
+    public void setUp() {
+        pokedexFactory = new PokedexFactory();
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory();
+        pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        pokemonTrainer = new PokemonTrainer("Trainer", Team.INSTINCT, pokedex);
     }
 
     @Test
-    public void testCreateTrainer() throws PokedexException {
-        assertEquals(pokemonTrainer, pokemonTrainerFactory.createTrainer("Yassine", Team.MYSTIC, pokedexFactory));
-        assertEquals("Yassine", pokemonTrainer.getName());
-        assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
-        assertEquals(iPokedex, pokemonTrainer.getPokedex());
+    public void shouldGetTrainer() {
+        PokemonTrainer testTrainer = pokemonTrainerFactory.createTrainer("Trainer", Team.INSTINCT, pokedexFactory);
+
+        assertEquals(pokemonTrainer.getName(), testTrainer.getName());
+        assertEquals(pokemonTrainer.getTeam(), testTrainer.getTeam());
+        assertEquals(pokemonTrainer.getPokedex().size(), testTrainer.getPokedex().size());
+        assertEquals(pokemonTrainer.getPokedex().getPokemons(), testTrainer.getPokedex().getPokemons());
     }
 
 
