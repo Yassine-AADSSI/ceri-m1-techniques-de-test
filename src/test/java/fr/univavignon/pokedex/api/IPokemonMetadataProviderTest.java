@@ -27,7 +27,6 @@ public class IPokemonMetadataProviderTest {
         assertEquals(metaData.getPokemonMetadata(0).getName(), pokemon1.getName());
         assertEquals(metaData.getPokemonMetadata(133).getDefense(), pokemon2.getDefense());
 
-
     }
     // Test de la méthode getPokemonMetadata avec un index invalide pour lever une exception
     @Test(expected = PokedexException.class)

@@ -98,8 +98,7 @@ public class IPokedexTest {
         assertEquals(pokemonMetadata.getAttack(),pokemon1.getAttack());
         assertEquals(pokemonMetadata.getStamina(),pokemon1.getStamina());
 
-        // Effectuer les assertions appropriées sur le résultat obtenu
-        assertNotNull(pokemonMetadata);
+
     }
 
 
@@ -112,7 +111,7 @@ public class IPokedexTest {
         assertEquals(pokemon.getDust(),pokemon1.getDust());
         assertEquals(pokemon.getCandy(),pokemon1.getCandy());
 
-
+        assertEquals(0, 0,iPokedex.createPokemon(0, 613,64,4000,4).getIv());
         assertEquals(613,iPokedex.createPokemon(0, 613,64,4000,4).getCp());
         assertEquals(0,iPokedex.createPokemon(0, 613,64,4000,4).getIndex());
 
