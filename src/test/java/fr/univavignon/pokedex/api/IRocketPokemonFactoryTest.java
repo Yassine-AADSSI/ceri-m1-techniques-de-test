@@ -13,17 +13,16 @@ public class IRocketPokemonFactoryTest {
     @Before
     public void setUp() throws PokedexException {
         rocketPokemonFactory = new RocketPokemonFactory();
-        pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     }
 
     @Test
     public void testCreatePokemon() throws PokedexException {
         Pokemon rocket = rocketPokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(pokemon1.getIndex(), rocket.getIndex());
-        assertEquals(pokemon1.getCp(), rocket.getCp());
-        assertEquals(pokemon1.getHp(), rocket.getHp());
-        assertEquals(pokemon1.getDust(), rocket.getDust());
-        assertEquals(pokemon1.getCandy(), rocket.getCandy());
+        assertEquals(0, rocket.getIndex());
+        assertEquals(613, rocket.getCp());
+        assertEquals(64, rocket.getHp());
+        assertEquals(4000, rocket.getDust());
+        assertEquals(4, rocket.getCandy());
 
         // Verifier avec un index inferieur à 0
         Pokemon rocket2 = rocketPokemonFactory.createPokemon(-1, 0, 0, 0, 0);
