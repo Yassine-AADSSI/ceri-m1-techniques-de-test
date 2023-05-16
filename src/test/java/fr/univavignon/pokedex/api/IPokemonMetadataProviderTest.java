@@ -29,7 +29,7 @@ public class IPokemonMetadataProviderTest {
 
 
     }
-    // Test de la méthode getPokemonMetadata avec un index invalide (inférieur à 0) qui doit lever une exception
+    // Test de la méthode getPokemonMetadata avec un index invalide pour lever une exception
     @Test(expected = PokedexException.class)
     public void testGetPokemonMetadataWithInvalidIndex() throws PokedexException {
         when(metaData.getPokemonMetadata(-1)).thenThrow(new PokedexException("L'index est invalide"));

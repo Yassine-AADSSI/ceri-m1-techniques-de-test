@@ -116,10 +116,11 @@ public class IPokedexTest {
         assertEquals(613,iPokedex.createPokemon(0, 613,64,4000,4).getCp());
         assertEquals(0,iPokedex.createPokemon(0, 613,64,4000,4).getIndex());
 
-        assertThrows(PokedexException.class, () -> {
-            iPokedex.getPokemon(-1);
-        });
+    }
 
+    @Test(expected = PokedexException.class)
+    public void testGetPokemonMetadataWithInvalidIndex() throws PokedexException {
+        iPokedex.getPokemonMetadata(-1);
     }
 
 
