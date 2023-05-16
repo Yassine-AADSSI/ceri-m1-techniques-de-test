@@ -25,7 +25,21 @@ public class IRocketPokemonFactoryTest {
         assertEquals(pokemon1.getDust(), rocket.getDust());
         assertEquals(pokemon1.getCandy(), rocket.getCandy());
 
-
+        Pokemon rocket2 = rocketPokemonFactory.createPokemon(-1, 0, 0, 0, 0);
+        assertEquals(rocket2.getIndex(), -1);
+        assertEquals(rocket2.getName(), "Ash's Pikachu");
+        assertEquals(rocket2.getAttack(), 1000);
+        assertEquals(rocket2.getDefense(), 1000);
+        assertEquals(rocket2.getStamina(), 1000);
+        assertEquals(rocket2.getCp(), 0);
+        assertEquals(rocket2.getHp(), 0);
+        assertEquals(rocket2.getDust(), 0);
+        assertEquals(rocket2.getCandy(), 0);
+        assertEquals(rocket2.getIv(), 0, 0);
+        
+        
+        
+        
         Pokemon missingno = rocketPokemonFactory.createPokemon(1000, 0, 0, 0, 0);
         assertEquals(missingno.getName(), "MISSINGNO");
         
