@@ -39,7 +39,6 @@ public class IRocketPokemonFactoryTest {
         
         
         
-        
         Pokemon missingno = rocketPokemonFactory.createPokemon(1000, 0, 0, 0, 0);
         assertEquals(missingno.getName(), "MISSINGNO");
         
