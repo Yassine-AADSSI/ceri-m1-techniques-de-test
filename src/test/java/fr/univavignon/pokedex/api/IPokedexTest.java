@@ -16,8 +16,7 @@ import static org.mockito.Mockito.when;
 public class IPokedexTest {
 
     IPokedex iPokedex;
-    IPokemonFactory iPokemonFactory;
-    IPokemonMetadataProvider iPokemonMetadataProvider;
+
     Pokemon pokemon1;
     Pokemon pokemon2;
     List<Pokemon> pokemons = new ArrayList<>();
@@ -117,8 +116,8 @@ public class IPokedexTest {
         assertEquals(pokemon.getCandy(),pokemon1.getCandy());
 
 
-        assertEquals(613,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCp());
-        assertEquals(0,iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
+        assertEquals(613,iPokedex.createPokemon(0, 613,64,4000,4).getCp());
+        assertEquals(0,iPokedex.createPokemon(0, 613,64,4000,4).getIndex());
 
         assertThrows(PokedexException.class, () -> {
             iPokedex.getPokemon(-1);
