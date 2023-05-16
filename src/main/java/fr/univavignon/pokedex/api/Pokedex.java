@@ -78,11 +78,6 @@ public class Pokedex implements IPokedex{
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        for (PokemonMetadata pokemonMetadata : pokemons) {
-            if (pokemonMetadata.getIndex() == index) {
-                return pokemonMetadata;
-            }
-        }
-        throw new PokedexException("L'index du pokémon n'existe pas");
+        return pokemonMetadataProvider.getPokemonMetadata(index);
     }
 }
