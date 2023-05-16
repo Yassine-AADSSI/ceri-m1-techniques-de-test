@@ -20,15 +20,15 @@ public class IPokemonTrainerFactoryTest {
         pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
         pokedexFactory = mock(IPokedexFactory.class);
         iPokedex = mock(IPokedex.class);
-        pokemonTrainer = new PokemonTrainer("yassine", Team.MYSTIC, iPokedex);
-
-        when(pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory)).thenReturn(pokemonTrainer);
     }
 
     @Test
     public void testCreateTrainer() throws PokedexException {
-        PokemonTrainer trainer = pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory);
+        pokemonTrainer = new PokemonTrainer("yassine", Team.MYSTIC, iPokedex);
+        when(pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory)).thenReturn(pokemonTrainer);
         assertEquals(pokemonTrainer, pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory));
+
+
         assertEquals("yassine", pokemonTrainer.getName());
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
         assertEquals(iPokedex, pokemonTrainer.getPokedex());
