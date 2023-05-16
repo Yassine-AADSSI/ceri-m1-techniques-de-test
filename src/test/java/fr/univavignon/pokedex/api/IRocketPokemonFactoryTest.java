@@ -46,7 +46,6 @@ public class IRocketPokemonFactoryTest {
         Pokemon Bulbasaur= rocketPokemonFactory.createPokemon(1, 0, 0, 0, 0);
         assertEquals(Bulbasaur.getName(), "Bulbasaur");
 
-
     }
 
 
