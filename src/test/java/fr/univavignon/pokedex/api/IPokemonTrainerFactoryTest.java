@@ -8,12 +8,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokemonTrainerFactoryTest {
-
     private IPokemonTrainerFactory pokemonTrainerFactory;
     private IPokedexFactory pokedexFactory;
     private IPokedex iPokedex;
     private PokemonTrainer pokemonTrainer;
-
 
     @Before
     public void setUp() throws PokedexException {
