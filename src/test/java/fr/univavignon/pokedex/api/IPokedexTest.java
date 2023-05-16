@@ -105,6 +105,14 @@ public class IPokedexTest {
 
     @Test
     public void testCreatePokemon() throws PokedexException{
+        Pokemon pokemon = iPokedex.createPokemon(0,613,64,4000,4);
+        assertEquals(pokemon.getIndex(),pokemon1.getIndex());
+        assertEquals(pokemon.getCp(),pokemon1.getCp());
+        assertEquals(pokemon.getHp(),pokemon1.getHp());
+        assertEquals(pokemon.getDust(),pokemon1.getDust());
+        assertEquals(pokemon.getCandy(),pokemon1.getCandy());
+
+
         assertEquals(613,iPokemonFactory.createPokemon(0, 613,64,4000,4).getCp());
         assertEquals(0,iPokemonFactory.createPokemon(0, 613,64,4000,4).getIndex());
 
