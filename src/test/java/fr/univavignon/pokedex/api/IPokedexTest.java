@@ -26,10 +26,8 @@ public class IPokedexTest {
 
     @Before
     public void init() throws PokedexException {
-        iPokemonFactory = new PokemonFactory();
-        iPokemonMetadataProvider = new PokemonMetadataProvider();
 
-        iPokedex = new Pokedex(iPokemonFactory, iPokemonMetadataProvider);
+        iPokedex = new Pokedex(new PokemonFactory(), new PokemonMetadataProvider());
 
         pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
@@ -67,6 +65,8 @@ public class IPokedexTest {
     public void getPockemons(){
         iPokedex.addPokemon(pokemon1);
         iPokedex.addPokemon(pokemon2);
+        List<Pokemon> pokemons = iPokedex.getPokemons();
+        assertEquals(2, pokemons.size());
         assertTrue(iPokedex.getPokemons().contains(pokemon1));
         assertTrue(iPokedex.getPokemons().contains(pokemon2));
     }
