@@ -27,6 +27,7 @@ public class IPokemonTrainerFactoryTest {
 
     @Test
     public void testCreateTrainer() throws PokedexException {
+        PokemonTrainer trainer = pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory);
         assertEquals(pokemonTrainer, pokemonTrainerFactory.createTrainer("yassine", Team.MYSTIC, pokedexFactory));
         assertEquals("yassine", pokemonTrainer.getName());
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
